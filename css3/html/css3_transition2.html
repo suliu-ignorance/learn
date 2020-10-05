@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 50px;
+        background: green;
+        transition-property: width;
+        transition-duration: 2s; 
+    }
+
+    #div1 {
+        transition-timing-function:linear;
+        /* linear:是以相同的速度变换 */
+    }
+
+    #div2 {
+        transition-timing-function:ease;
+        /* 以慢速度开始加快，然后以慢速度结束 */
+    }
+
+    #div3 {
+        transition-timing-function: ease-in;
+        /* ease-in：以慢速度开始的过渡 */
+    }
+    #div4 {
+        transition-timing-function: ease-out;
+        /* ease-in：以慢速度结束的过渡 */
+    }
+
+    #div5 {
+        transition-timing-function: ease-in-out;
+        /* 以慢速度结束和慢速度开始的过渡 */
+    }
+    div:hover {
+        width: 200px;
+    }
+</style>
+<body>
+    <div id="div1">linear</div>
+    <div id="div2">ease</div>
+    <div id="div3">ease-in</div>
+    <div id="div4">ease-out</div>
+    <div id="div5">ease-in-out</div>
+</body>
+</html>
