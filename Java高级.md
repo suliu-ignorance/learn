@@ -741,3 +741,12 @@ byte[] value = new byte[16];
 StringBuilder的初始容量为16；
 
 StringBuilder在内存中始终是一个数组，占用空间，少效率高；如果超出了StringBuilder的容量，会自动扩容
+
+构造方法：
+
+StringBuilder():构造一个不带任何字符的字符串生成器，其初始容量为
+
+16个字符
+
+StringBuilder(String str):构造一个字符串生成器，其初始化为指定的字符串内容
+
