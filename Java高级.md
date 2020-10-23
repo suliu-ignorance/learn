@@ -750,3 +750,118 @@ StringBuilder():构造一个不带任何字符的字符串生成器，其初始�
 
 StringBuilder(String str):构造一个字符串生成器，其初始化为指定的字符串内容
 
+链式编程：方法的返回值是一个对象，可以继续调用方法
+
+
+
+String和StringBuilder可以相互转换：
+
+​	String->StringBuilder可以使用StringBuilderd的构造方法
+
+​	StringBuilder(String str):构造一个字符串生成器，其初始化为指定的字符串内容
+
+StringBuilder->String：可以使用StringBuilder中的toString方法
+
+​	public String toString()：将当前的StringBuilder对象转换成String对象
+
+### 六、包装类
+
+#### 一、概念
+
+就是使用一个类把对应的数据的数据类型给装起来
+
+#### 二、装箱与拆箱
+
+装箱：把基本数据类型，包装到包装类当中（基本数据类型的数据->	包装类）
+
+​	构造方法：Integer(int value)：构造一个新分配的Integer对象，他表示指定的int值
+
+​						Integer(String s):构造一个新分配的Integer对象，他表示String参数所指示的int值（注意：传递的字符串必须是int类型，否则就会抛出异常）
+
+​	静态方法：static Integer valueOf(int i)返回一个指定的int值的Integer实例
+
+​						static Integer valueOf(String s)返回保存指定的值的Integer对象				
+
+拆箱：在包装类当中，取出基本数据类型的数据（包装类->基本数据类型）
+
+### 七、集合框架
+
+#### 一、概述
+
+​	Vector集合
+
+​	ArrayList集合
+
+​	LinkedList集合
+
+​	TreeSet集合
+
+​	HashSet集合
+
+​	LinkedHashSet集合
+
+​	学习集合的目标：1、会使用集合存储数据2、会遍历集合，把数据取出来使用3、掌握每一种集合的特性
+
+​	学习集合框架的方式：（1、学习顶层：学习顶层接口/抽象类中共性的方法所有子类都可以使用，2、使用底层：底层不是接口就是抽象类，无法创建对象使用，需要使用底层的子类创建对象使用）
+
+Collection接口：（1、定义的是所有单列集合当中所有共性的方法2、所有单列集合都可以使用共性的方法3、没有带索引的方法）
+
+分类：List接口（1、有序的集合（存储和取出元素的顺序相同）2、允许存储重复的元素3、有索引，可以使用普通for循环遍历)
+
+​			分类：Vector集合
+
+​						ArrayList集合
+
+​						LinkedList集合
+
+​			Set接口（1、不允许存储重复的元素 2、没有索引 （不能使用普通的for循环遍历））
+
+​				分类：TreeSet集合
+
+​							HashSet集合（前两个为无序的集合，存储和取出的元素顺序可能不一致）
+
+​							LinkedHashSet集合（有序的集合）
+
+​	
+
+继承：子类共性抽取，形成父类（接口）
+
+#### 二、Collection集合常用功能
+
+java.util.Collection接口
+
+​	所有单列集合的最顶层的接口，里边定义了单列集合共性的方法，任意的单列集合都可以使用Collection接口中共性的方法
+
+​	共性的方法：
+
+​	1、public boolean add(E e):把给定的对象添加到当前集合当中返回值是一个布尔值，一般返回都是true，所以可以不用接收
+
+​	2、public boolean remove(E e):把给定的对象在当前集合当中删除返回值是一个布尔值，集合中存在元素，删除元素，返回true；若集合当中，不存在元素，删除失败，返回false
+
+​	3、public boolean contains(E e):判断当前集合中是否包含给定的对象，包含返回true，不包含返回false
+
+​	4、public boolean isEmpty():判断当前集合是否为空若为空，则返回true
+
+​	5、public int size():返回集合当中元素的个数
+
+​	6、public Object[] toArray():把集合中的元素，存储到数组当中
+
+​	7、public void clear():清空集合当中所有的元素，但不删除集合，集合还存在
+
+#### 三、iterator接口
+
+Iterator迭代器：是一个接口，我们无法使用，需要使用Iterator接口的实现类对象，获取实现类的方式比较特殊
+
+Collection接口中有一个方法，	叫iterator(),这个方法返回的就是迭代器的实现类对象
+
+Iterator<E> iterator(),返回在此collection的元素上进行迭代的迭代器
+
+
+
+迭代器的使用步骤（重点）：
+
+1、使用集合中的方法iterator()获取迭代器的实现类对象，使用Iterator接口接收（多态）
+
+2、使用Iterator接口中的方法hasNext判断还有没有下一个元素
+
+3、使用Iterator接口中的方法next取出集合中的下一个元素
